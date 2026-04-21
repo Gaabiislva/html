@@ -1514,17 +1514,7 @@ tbody td:first-child {
 <script>
 // ─── NAVIGATION ───
 const suppliers = {
-  comerc: { name:'COMERC', mesRef:'≤ 3 meses anteriores ao atual', calculo:'3, 6 ou 12 meses', dadosPor:'Fatura', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:[
-    '⚡ Energia Reativa: ACEITA.',
-    '🧾 Fatura ilegível: se login e senha forem funcionais, baixar a fatura no site da distribuidora e anexar.',
-    '💳 Débito em aberto: NÃO PODE — mas pode validar com comprovante de pagamento.',
-    '💡 Clientes da Light (assinatura após 07/2025): registrar devolutiva como "Distribuidora indisponível para fornecimento".',
-    '🏢 Clientes PJ: antes da validação, enviar CNPJ + região (SP, PR, MG etc.) no grupo do Serasa (Teams).',
-    '🔁 Troca de instalação: reemitir contrato se número for diferente da fatura. Não reemitir se instalação = número do cliente ou se a diferença for apenas zeros à esquerda.',
-    '📋 Razão Social abreviada: corrigir conforme Cartão CNPJ e reemitir contrato.',
-    '⛪ Igrejas, associações, condomínios: não precisa de estatuto/convenção — apenas ATA de eleição do responsável.',
-    '🔍 Instalação: validar se está cadastrada no site da distribuidora.'
-  ] },
+  comerc: { name:'COMERC', mesRef:'≤ 3 meses anteriores ao atual', calculo:'3, 6 ou 12 meses', dadosPor:'Fatura', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:[] },
   thopen: { name:'THOPEN', mesRef:'≤ 3 meses anteriores ao atual', calculo:'6 ou 12 meses', dadosPor:'Fatura', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'NÃO PODE',note:'Parcelamento, Empréstimo e Débito: nenhum aceito',type:'deny'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Não pode ser impresso', login:'Não precisa', extras:[] },
   cotesa: { name:'COTESA', mesRef:'≤ 2 meses anteriores ao atual', calculo:'12 meses', dadosPor:'Fatura', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'CONDICIONAL',note:'Aceita parcelamento, débito e empréstimo apenas nas regiões CEEE e Elektro.',type:'warn'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'NÃO PODE estar cortada', documento:'Documento completo', login:'Apenas regiões CEEE e Elektro', extras:[] },
   gedisa: { name:'GEDISA', mesRef:'≤ 3 meses anteriores ao atual', calculo:'1 mês', dadosPor:'Fatura — caso tenha sobrenome faltando ou sobrando, pode apenas ajustar (não é necessário reemissão)', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'NÃO PODE estar cortada', documento:'Documento completo', login:'Não precisa', extras:[] },
@@ -1621,6 +1611,7 @@ function showPage(id) {
       {dist:'EDP', estado:'Espírito Santo', instalacao:'Número da UC', cliente:'Número da UC', conta:'Não preencher', obs:'Mín. 100 kWh'},
       {dist:'Energisa Sul Sudeste', estado:'SP / MG', instalacao:'Código da Instalação', cliente:'Código do Cliente', conta:'Não preencher', obs:'Mín. 100 kWh'},
       {dist:'CEEE', estado:'Rio Grande do Sul', instalacao:'Número da UC', cliente:'Parceiro de Negócio', conta:'Não preencher', obs:'Mín. 100 kWh — Se possuir apenas UC, utilizar nos dois campos.'},
+      {dist:'Neoenergia', estado:'Pernambuco', instalacao:'Código da Instalação', cliente:'Código do Cliente', conta:'Não preencher', obs:'Mín. 100 kWh'},
     ],
     bomfuturo: [
       {dist:'Energisa', estado:'Mato Grosso', instalacao:'Código de Instalação', cliente:'Código do Cliente', conta:'Não preencher', obs:''},
@@ -1810,7 +1801,7 @@ function showPage(id) {
     cotesa: [{dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'RGE (Com troca de titularidade)', estado:'Rio Grande do Sul', min:100}, {dist:'RGE Rural (Sem troca de titularidade)', estado:'Rio Grande do Sul', min:100}],
     gedisa: [{dist:'RGE', estado:'Rio Grande do Sul', min:300}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:300}, {dist:'Equatorial', estado:'Maranhão', min:300}, {dist:'CEEE', estado:'Rio Grande do Sul', min:300}, {dist:'COPEL', estado:'Paraná', min:100}],
     fit: [{dist:'Energisa Minas Rio', estado:'Minas Gerais', min:100}, {dist:'Energisa Minas Rio', estado:'Rio de Janeiro', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}, {dist:'Elektro', estado:'São Paulo', min:100}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Equatorial', estado:'Alagoas', min:100}, {dist:'Equatorial', estado:'Piauí', min:100}, {dist:'Neoenergia Cosern', estado:'Rio Grande do Norte', min:100}, {dist:'ENEL', estado:'Ceará', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:100}, {dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'COPEL', estado:'Paraná', min:100}],
-    sunclick: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'ENEL CE', estado:'Ceará', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}],
+    sunclick: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'ENEL CE', estado:'Ceará', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}],
     bomfuturo: [{dist:'Energisa', estado:'Mato Grosso', min:100}],
     edp: [{dist:'CPFL Santa Cruz', estado:'SP / PR / MG', min:250}],
   };
@@ -1873,7 +1864,7 @@ function showSupplier(key) {
     cotesa: [['CELESC', 'Santa Catarina'], ['RGE', 'Rio Grande do Sul (Rural)']],
     gedisa: [['RGE', 'Rio Grande do Sul'], ['Energisa Sul Sudeste', 'São Paulo e Minas Gerais'], ['Equatorial', 'Maranhão'], ['CEEE', 'Rio Grande do Sul'], ['COPEL', 'Paraná']],
     fit: [['Energisa Minas Rio', 'Minas Gerais e Rio de Janeiro'], ['Elektro', 'São Paulo'], ['CPFL Paulista', 'São Paulo'], ['Equatorial', 'Goiás'], ['Energisa', 'Mato Grosso'], ['Energisa', 'Mato Grosso do Sul'], ['Equatorial', 'Alagoas'], ['ENEL', 'Ceará'], ['Neoenergia', 'Pernambuco'], ['Neoenergia Cosern', 'Rio Grande do Norte'], ['Equatorial', 'Piauí'], ['COELBA (Neoenergia)', 'Bahia'], ['CELESC', 'Santa Catarina'], ['COPEL', 'Paraná']],
-    sunclick: [['RGE', 'Rio Grande do Sul'], ['ENEL CE', 'Ceará'], ['EDP', 'Espírito Santo'], ['Energisa Sul Sudeste', 'São Paulo e Minas Gerais'], ['CEEE', 'Rio Grande do Sul']],
+    sunclick: [['RGE', 'Rio Grande do Sul'], ['ENEL CE', 'Ceará'], ['EDP', 'Espírito Santo'], ['Energisa Sul Sudeste', 'São Paulo e Minas Gerais'], ['CEEE', 'Rio Grande do Sul'], ['Neoenergia', 'Pernambuco']],
     edp: [['CPFL Santa Cruz', 'Paraná, São Paulo, Minas Gerais']],
     bomfuturo: [['Energisa', 'Mato Grosso']]
   };
