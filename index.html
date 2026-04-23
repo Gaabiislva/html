@@ -1751,6 +1751,48 @@ function showPage(id) {
     + '</div>';
   }
 
+  function buildMesReferenciaBlock(key) {
+    if (key !== 'cotesa') return '';
+    return '<div class="d-card full" style="border-color:var(--green-dim);margin-top:4px;">'
+      + '<div class="d-card-label" style="color:var(--green);">📅 Mês de Referência × Mês de Vencimento</div>'
+      + '<div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
+      + '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">M</div>'
+      + '<div style="font-size:13px;font-weight:700;color:var(--green);">Data ref. = Mês de vencimento</div>'
+      + '</div>'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
+      + '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">M+1</div>'
+      + '<div style="font-size:13px;font-weight:700;color:var(--green);">Data ref. 1 mês à frente do vencimento</div>'
+      + '</div>'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
+      + '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">M+2</div>'
+      + '<div style="font-size:13px;font-weight:700;color:var(--green);">Data ref. 2 meses à frente do vencimento</div>'
+      + '</div>'
+      + '</div>'
+      + '</div>';
+  }
+
+  function buildMesReferenciaBlock(key) {
+    if (key !== 'cotesa') return '';
+    return '<div class="d-card full" style="border-color:var(--green-dim);margin-top:4px;">'
+      + '<div class="d-card-label" style="color:var(--green);">📅 Mês de Referência × Mês de Vencimento</div>'
+      + '<div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
+      + '<div style="font-family:\'Inter\',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:6px;">M</div>'
+      + '<div style="font-size:12px;color:var(--text-2);line-height:1.5;">Data referência = mês de vencimento</div>'
+      + '</div>'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
+      + '<div style="font-family:\'Inter\',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:6px;">M+1</div>'
+      + '<div style="font-size:12px;color:var(--text-2);line-height:1.5;">Data referência 1 mês à frente do vencimento</div>'
+      + '</div>'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
+      + '<div style="font-family:\'Inter\',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:6px;">M+2</div>'
+      + '<div style="font-size:12px;color:var(--text-2);line-height:1.5;">Data referência 2 meses à frente do vencimento</div>'
+      + '</div>'
+      + '</div>'
+      + '</div>';
+  }
+
   function buildRuralBlock(key) {
     var d = ruralData[key];
     if (!d) return '';
@@ -1924,6 +1966,7 @@ function showSupplier(key) {
   const nrFields = nonReqData[key];
   let nonReqBlock = '';
   var oscilacaoBlock = buildOscilacaoBlock(key);
+  var mesReferenciaBlock = buildMesReferenciaBlock(key);
 
   if (nrFields === 'all') {
     nonReqBlock = '<div class="d-card full" style="border-color:var(--green-dim);margin-top:4px;">'
@@ -1960,6 +2003,7 @@ function showSupplier(key) {
     + extras
     + fitMediaBlock
     + ruralBlock
+    + mesReferenciaBlock
     + regionBlock
     + oscilacaoBlock
     + nonReqBlock
