@@ -1518,7 +1518,7 @@ const suppliers = {
   thopen: { name:'THOPEN', mesRef:'≤ 3 meses anteriores ao atual', calculo:'6 ou 12 meses', dadosPor:'Fatura', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'NÃO PODE',note:'Parcelamento, Empréstimo e Débito: nenhum aceito',type:'deny'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Não pode ser impresso', login:'Não precisa', extras:[] },
   cotesa: { name:'COTESA', mesRef:'≤ 2 meses anteriores ao atual', calculo:'12 meses', dadosPor:'Fatura', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'CONDICIONAL',note:'Aceita parcelamento, débito e empréstimo apenas nas regiões CEEE e Elektro.',type:'warn'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'NÃO PODE estar cortada', documento:'Documento completo', login:'Apenas regiões CEEE e Elektro', extras:[] },
   gedisa: { name:'GEDISA', mesRef:'≤ 3 meses anteriores ao atual', calculo:'1 mês', dadosPor:'Fatura — caso tenha sobrenome faltando ou sobrando, pode apenas ajustar (não é necessário reemissão)', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'NÃO PODE estar cortada', documento:'Documento completo', login:'Não precisa', extras:[] },
-  sunclick: { name:'SUNCLICK', mesRef:'≤ 3 meses anteriores ao atual', calculo:'12 meses', dadosPor:'Fatura', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'NÃO PODE',note:'Nenhum dos três aceito',type:'deny'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Documento completo', login:'Não precisa', extras:[] },
+  sunclick: { name:'SUNCLICK', mesRef:'≤ 3 meses anteriores ao atual', calculo:'12 meses', dadosPor:'Fatura', icms:{val:'COND.',type:'cond',note:'Pode ter ICMS abaixo de 17%, mas não pode estar zerado'}, parcelamento:{val:'NÃO PODE',note:'Nenhum dos três aceito',type:'deny'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Documento completo', login:'Não precisa', extras:[] },
   fit: { name:'FIT', mesRef:'≤ 3 meses anteriores ao atual', calculo:'6 meses', dadosPor:'Documento Pessoal', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'CONDICIONAL',note:'Parcelamento e empréstimo aceitos apenas na última ou penúltima parcela. Débito em aberto não pode constar na fatura.',type:'warn'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'NÃO PODE estar cortada', documento:'CNH, RG, Carteira de Profissão, Passaporte', login:'Não é obrigatório', extras:['Campos PI e AL: Parceiro de Negócio = Conta Contrato; Conta Contrato = Conta Contrato; Instalação = Instalação','Campo Fatura: preencher com Data de Próxima Leitura','Campo Nome: deve estar de acordo com o documento pessoal'] },
   solatio: { name:'SOLATIO', mesRef:'≤ 3 meses anteriores ao atual', calculo:'6 ou 12 meses', dadosPor:'Fatura', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'CONDICIONAL',note:'Débito: NÃO PODE. Parcelamento e Empréstimo: PODE.',type:'warn'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:[] },
   sunne: { name:'SUNNE', mesRef:'≤ 2 meses anteriores ao atual', calculo:'6 ou 12 meses', dadosPor:'Fatura', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'CONDICIONAL',note:'Débito aceito, porém NÃO PODE ter aviso de corte na fatura.',type:'warn'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:['⚠ Débito: aceito somente se não houver aviso de corte na fatura.'] },
@@ -1775,19 +1775,25 @@ function showPage(id) {
   function buildMesReferenciaBlock(key) {
     if (key !== 'cotesa') return '';
     return '<div class="d-card full" style="border-color:var(--green-dim);margin-top:4px;">'
-      + '<div class="d-card-label" style="color:var(--green);">📅 Mês de Referência × Mês de Vencimento</div>'
-      + '<div style="margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">'
-      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
-      + '<div style="font-family:\'Inter\',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:6px;">M</div>'
-      + '<div style="font-size:12px;color:var(--text-2);line-height:1.5;">Data referência = mês de vencimento</div>'
+      + '<div class="d-card-label" style="color:var(--green);">📅 Campo "Mês de Faturamento" — Como preencher</div>'
+      + '<div style="font-size:12px;color:var(--text-2);line-height:1.7;margin-top:8px;margin-bottom:14px;">'
+      + 'Ao identificar na fatura de energia a <strong style="color:var(--text-1);">Data de Referência</strong> e o <strong style="color:var(--text-1);">Mês de Vencimento</strong>, compare as duas e preencha o campo <strong style="color:var(--green);">Mês de Faturamento</strong> no sistema conforme a tabela abaixo:'
       + '</div>'
-      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
-      + '<div style="font-family:\'Inter\',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:6px;">M+1</div>'
-      + '<div style="font-size:12px;color:var(--text-2);line-height:1.5;">Data referência 1 mês à frente do vencimento</div>'
+      + '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:14px;text-align:center;">'
+      + '<div style="font-family:\'Inter\',sans-serif;font-size:18px;font-weight:800;color:var(--green);margin-bottom:8px;">M</div>'
+      + '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;">Preencher com</div>'
+      + '<div style="font-size:12px;color:var(--text-1);font-weight:600;line-height:1.5;">Data de referência = mês de vencimento</div>'
       + '</div>'
-      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;text-align:center;">'
-      + '<div style="font-family:\'Inter\',sans-serif;font-size:16px;font-weight:800;color:var(--green);margin-bottom:6px;">M+2</div>'
-      + '<div style="font-size:12px;color:var(--text-2);line-height:1.5;">Data referência 2 meses à frente do vencimento</div>'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:14px;text-align:center;">'
+      + '<div style="font-family:\'Inter\',sans-serif;font-size:18px;font-weight:800;color:var(--green);margin-bottom:8px;">M+1</div>'
+      + '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;">Preencher com</div>'
+      + '<div style="font-size:12px;color:var(--text-1);font-weight:600;line-height:1.5;">Data de referência 1 mês à frente do vencimento</div>'
+      + '</div>'
+      + '<div style="background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:14px;text-align:center;">'
+      + '<div style="font-family:\'Inter\',sans-serif;font-size:18px;font-weight:800;color:var(--green);margin-bottom:8px;">M+2</div>'
+      + '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;">Preencher com</div>'
+      + '<div style="font-size:12px;color:var(--text-1);font-weight:600;line-height:1.5;">Data de referência 2 meses à frente do vencimento</div>'
       + '</div>'
       + '</div>'
       + '</div>';
@@ -1994,7 +2000,7 @@ function showSupplier(key) {
     '<div class="d-card"><div class="d-card-label">Mês de referência da fatura</div><div style="font-size:22px;font-family:\'Josefin Sans\',sans-serif;font-weight:800;color:var(--green);margin-bottom:4px;">' + s.mesRef + '</div></div>'
     + '<div class="d-card"><div class="d-card-label">Cálculo do consumo</div><div style="font-size:22px;font-family:\'Josefin Sans\',sans-serif;font-weight:800;color:var(--green);margin-bottom:4px;">' + s.calculo + '</div></div>'
     + '<div class="d-card"><div class="d-card-label">Dados cadastrais baseados em</div><div style="font-size:18px;font-family:\'Josefin Sans\',sans-serif;font-weight:800;color:' + (s.dadosPor.includes('Documento') ? 'var(--amber)' : 'var(--green)') + ';margin-bottom:4px;">' + s.dadosPor + '</div></div>'
-    + '<div class="d-card"><div class="d-card-label">ICMS abaixo de 17%</div><div style="font-size:20px;font-family:\'Josefin Sans\',sans-serif;font-weight:800;color:' + colorMap[s.icms.type] + ';margin-bottom:4px;">' + s.icms.val + '</div></div>'
+    + '<div class="d-card"><div class="d-card-label">ICMS abaixo de 17%</div><div style="font-size:20px;font-family:\'Josefin Sans\',sans-serif;font-weight:800;color:' + colorMap[s.icms.type] + ';margin-bottom:4px;">' + s.icms.val + '</div>' + (s.icms.note ? '<div style="font-size:12px;color:var(--text-2);margin-top:4px;">' + s.icms.note + '</div>' : '') + '</div>'
     + '<div class="d-card" style="grid-column:span 2;"><div class="d-card-label">Parcelamento / Empréstimo / Débito</div><div style="font-size:18px;font-family:\'Josefin Sans\',sans-serif;font-weight:800;color:' + colorMap[s.parcelamento.type] + ';margin-bottom:6px;">' + s.parcelamento.val + '</div>' + (s.parcelamento.note ? '<div style="font-size:12px;color:var(--text-2);">' + s.parcelamento.note + '</div>' : '') + '</div>'
     + '<div class="d-card"><div class="d-card-label">Energia Injetada</div><div style="font-size:18px;font-family:\'Josefin Sans\',sans-serif;font-weight:800;color:' + colorMap[s.energiaInjetada.type] + ';margin-bottom:4px;">' + s.energiaInjetada.val + '</div>' + (s.energiaInjetada && s.energiaInjetada.note ? '<div style="font-size:11px;color:var(--green);margin-top:4px;">' + s.energiaInjetada.note + '</div>' : '') + '</div>'
     + '<div class="d-card"><div class="d-card-label">Fatura de energia</div><div style="font-size:13px;color:var(--text-1);margin-top:4px;">' + s.faturaCortada + '</div></div>'
