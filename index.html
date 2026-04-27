@@ -702,6 +702,155 @@ tbody td:first-child {
     color: var(--text-2);
     font-family: 'Inter', monospace;
   }
+
+  /* ── Search ──────────────────────────────────────────────── */
+  .search-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .search-input {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 8px 12px 8px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-1);
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+  }
+  .search-input::placeholder { color: var(--text-3); }
+  .search-input:focus { border-color: var(--green-dim); }
+  .search-icon {
+    position: absolute;
+    left: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: var(--text-3);
+    pointer-events: none;
+  }
+  .search-panel {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1000;
+  }
+  .search-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(2px);
+  }
+  .search-results-box {
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    width: min(640px, 90vw);
+    background: var(--surface);
+    border: 1px solid var(--border2);
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .search-results-header {
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .search-results-input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--green-dim);
+    border-radius: 8px;
+    padding: 9px 14px 9px 36px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-1);
+    outline: none;
+    box-sizing: border-box;
+  }
+  .search-results-input::placeholder { color: var(--text-3); }
+  .search-close-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 7px;
+    color: var(--text-2);
+    font-size: 13px;
+    padding: 7px 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+  }
+  .search-close-btn:hover { border-color: var(--text-3); color: var(--text-1); }
+  .search-results-list {
+    overflow-y: auto;
+    padding: 8px 0;
+  }
+  .search-result-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  .search-result-item:last-child { border-bottom: none; }
+  .search-result-item:hover { background: var(--surface2); }
+  .sri-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .sri-supplier {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--green);
+    background: var(--green-muted);
+    border: 1px solid var(--green-dim);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-family: 'Inter', sans-serif;
+  }
+  .sri-category {
+    font-size: 10px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .sri-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-1);
+    margin-bottom: 2px;
+  }
+  .sri-excerpt {
+    font-size: 11px;
+    color: var(--text-2);
+    line-height: 1.5;
+  }
+  .sri-excerpt mark {
+    background: rgba(0,200,100,0.2);
+    color: var(--green);
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+  .search-empty {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-3);
+    font-size: 13px;
+  }
+  .search-count {
+    font-size: 11px;
+    color: var(--text-3);
+    padding: 6px 20px 2px;
+    border-bottom: 1px solid var(--border);
+  }
+
 </style>
 </head>
 <body>
@@ -711,6 +860,11 @@ tbody td:first-child {
   <div class="sidebar-logo">
     <div class="logo-text">iGreen</div>
     <div class="logo-sub">Hub de Validação</div>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" placeholder="Pesquisar no hub..." onfocus="openSearch(this.value)" oninput="openSearch(this.value)" />
   </div>
 
   <nav class="sidebar-section">
@@ -938,7 +1092,7 @@ tbody td:first-child {
           </tr>
           <tr>
             <td>Dados cadastrais baseados em</td>
-            <td>Fatura</td><td>Fatura</td><td>Fatura</td><td>Fatura</td><td>Fatura</td>
+            <td><span class="tag-cond">Fatura / Doc. / RF</span></td><td>Fatura</td><td>Fatura</td><td>Fatura</td><td>Fatura</td>
             <td><strong style="color:var(--amber)">Documento</strong></td><td>Fatura</td><td>Fatura</td><td>Fatura</td><td>Fatura</td><td>Fatura</td>
           </tr>
           <tr>
@@ -1514,7 +1668,7 @@ tbody td:first-child {
 <script>
 // ─── NAVIGATION ───
 const suppliers = {
-  comerc: { name:'COMERC', mesRef:'≤ 3 meses anteriores ao atual', calculo:'3, 6 ou 12 meses', dadosPor:'Fatura', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:[] },
+  comerc: { name:'COMERC', mesRef:'≤ 3 meses anteriores ao atual', calculo:'3, 6 ou 12 meses', dadosPor:'Fatura, Documento Pessoal ou Receita Federal', icms:{val:'NÃO PODE',type:'deny'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Sem restrição', login:'Não precisa', extras:[] },
   thopen: { name:'THOPEN', mesRef:'≤ 3 meses anteriores ao atual', calculo:'6 ou 12 meses', dadosPor:'Fatura', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'NÃO PODE',note:'Parcelamento, Empréstimo e Débito: nenhum aceito',type:'deny'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'Sem restrição', documento:'Não pode ser impresso', login:'Não precisa', extras:[] },
   cotesa: { name:'COTESA', mesRef:'≤ 2 meses anteriores ao atual', calculo:'12 meses', dadosPor:'Fatura', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'CONDICIONAL',note:'Aceita parcelamento, débito e empréstimo apenas nas regiões CEEE e Elektro.',type:'warn'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'NÃO PODE estar cortada', documento:'Documento completo', login:'Apenas regiões CEEE e Elektro', extras:[] },
   gedisa: { name:'GEDISA', mesRef:'≤ 3 meses anteriores ao atual', calculo:'1 mês', dadosPor:'Fatura — caso tenha sobrenome faltando ou sobrando, pode apenas ajustar (não é necessário reemissão)', icms:{val:'PODE',type:'ok'}, parcelamento:{val:'PODE',note:'Parcelamento, Empréstimo e Débito: todos aceitos',type:'ok'}, energiaInjetada:{val:'NÃO PODE',type:'deny'}, faturaCortada:'NÃO PODE estar cortada', documento:'Documento completo', login:'Não precisa', extras:[] },
@@ -2412,6 +2566,253 @@ document.addEventListener('DOMContentLoaded', function() {
 
   renderEntradas();
 });
+
+// ── Search Engine ─────────────────────────────────────────────────
+(function() {
+
+  // Índice de conteúdo pesquisável
+  var searchIndex = [];
+
+  function buildIndex() {
+    if (searchIndex.length > 0) return;
+
+    var supplierKeys = ['comerc','thopen','cotesa','gedisa','sunclick','fit','solatio','sunne','gv','bomfuturo','edp'];
+    var supplierLabels = {
+      comerc:'COMERC', thopen:'THOPEN', cotesa:'COTESA', gedisa:'GEDISA',
+      sunclick:'SUNCLICK', fit:'FIT', solatio:'SOLATIO', sunne:'SUNNE',
+      gv:'GV', bomfuturo:'BOM FUTURO', edp:'EDP'
+    };
+
+    supplierKeys.forEach(function(key) {
+      var s = suppliers[key];
+      if (!s) return;
+      var label = supplierLabels[key];
+
+      // Dados gerais
+      var generalFields = [
+        {cat:'Mês de Referência', val: s.mesRef},
+        {cat:'Cálculo da Média', val: s.calculo},
+        {cat:'Dados Cadastrais', val: s.dadosPor},
+        {cat:'ICMS abaixo de 17%', val: s.icms.val + (s.icms.note ? ' — ' + s.icms.note : '')},
+        {cat:'Parcelamento / Débito', val: s.parcelamento.val + (s.parcelamento.note ? ' — ' + s.parcelamento.note : '')},
+        {cat:'Energia Injetada', val: s.energiaInjetada.val},
+        {cat:'Fatura de Energia', val: s.faturaCortada},
+        {cat:'Documento Pessoal', val: s.documento},
+        {cat:'Login Distribuidora', val: s.login},
+      ];
+      generalFields.forEach(function(f) {
+        if (!f.val || f.val === '—') return;
+        searchIndex.push({
+          supplier: label, supplierKey: key,
+          category: f.cat,
+          title: f.cat + ': ' + f.val,
+          text: f.val,
+          action: function(k){ return function(){ showSupplier(k); }; }(key)
+        });
+      });
+
+      // Extras / campos específicos
+      if (s.extras && s.extras.length) {
+        s.extras.forEach(function(e) {
+          searchIndex.push({
+            supplier: label, supplierKey: key,
+            category: 'Campo Específico / Atenção',
+            title: e,
+            text: e,
+            action: function(k){ return function(){ showSupplier(k); }; }(key)
+          });
+        });
+      }
+    });
+
+    // Regiões / distribuidoras
+    var regionKeys = Object.keys(typeof supplierRegions !== 'undefined' ? supplierRegions : {});
+    regionKeys.forEach(function(key) {
+      var regs = supplierRegions[key];
+      var label = key.toUpperCase();
+      regs.forEach(function(r) {
+        searchIndex.push({
+          supplier: label, supplierKey: key,
+          category: 'Distribuidora / Região',
+          title: r[0] + ' — ' + r[1],
+          text: r[0] + ' ' + r[1],
+          action: function(k){ return function(){ showSupplier(k); }; }(key)
+        });
+      });
+    });
+
+    // kWh mínimo
+    var minKeys = Object.keys(typeof minKwhData !== 'undefined' ? minKwhData : {});
+    minKeys.forEach(function(key) {
+      var dists = minKwhData[key];
+      var label = key.toUpperCase();
+      dists.forEach(function(d) {
+        searchIndex.push({
+          supplier: label, supplierKey: key,
+          category: 'Consumo Mínimo',
+          title: d.dist + ' (' + d.estado + ') — mín. ' + d.min + ' kWh',
+          text: d.dist + ' ' + d.estado + ' ' + d.min + ' kwh',
+          action: function(k){ return function(){ showSupplier(k); }; }(key)
+        });
+      });
+    });
+
+    // Rural
+    var ruralKeys = Object.keys(typeof ruralData !== 'undefined' ? ruralData : {});
+    ruralKeys.forEach(function(key) {
+      var r = ruralData[key];
+      var label = key.toUpperCase();
+      var val = r.status === 'nao' ? 'Não aceita classificação rural' : r.status === 'aceita' ? 'Aceita classificação rural' : 'Classificação rural: condicional';
+      searchIndex.push({
+        supplier: label, supplierKey: key,
+        category: 'Classificação Rural',
+        title: val,
+        text: val + ' rural ' + r.obs,
+        action: function(k){ return function(){ showSupplier(k); }; }(key)
+      });
+    });
+
+    // Reprovação
+    var allSupplierKeys = ['comerc','thopen','cotesa','gedisa','sunclick','fit','solatio','sunne','gv','bomfuturo','edp'];
+    var baseRepro = typeof baseReproList !== 'undefined' ? baseReproList : [];
+    allSupplierKeys.forEach(function(key) {
+      var label = key.toUpperCase();
+      var excl = (typeof reproExclude !== 'undefined' && reproExclude[key]) || [];
+      var extras = (typeof reproExtras !== 'undefined' && reproExtras[key]) || [];
+      var items = baseRepro.filter(function(i){ return excl.indexOf(i) === -1; }).concat(extras);
+      items.forEach(function(item) {
+        searchIndex.push({
+          supplier: label, supplierKey: key,
+          category: 'Motivo de Reprovação',
+          title: item,
+          text: item + ' reprovação reprovar',
+          action: function(k){ return function(){ showSupplier(k); }; }(key)
+        });
+      });
+    });
+  }
+
+  function highlight(text, query) {
+    if (!query) return text;
+    var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(new RegExp('(' + escaped + ')', 'gi'), '<mark>$1</mark>');
+  }
+
+  window.openSearch = function(val) {
+    var panel = document.getElementById('searchPanel');
+    var input = document.getElementById('searchMainInput');
+    panel.style.display = 'block';
+    setTimeout(function(){ input.focus(); input.value = val || ''; if (val) runSearch(val); }, 50);
+  };
+
+  window.closeSearch = function() {
+    document.getElementById('searchPanel').style.display = 'none';
+    // Limpar input da sidebar
+    var sideInput = document.querySelector('.search-input');
+    if (sideInput) sideInput.value = '';
+  };
+
+  window.handlePanelClick = function(e) {
+    if (e.target.classList.contains('search-overlay') || e.target.closest('.search-overlay')) {
+      closeSearch();
+    }
+  };
+
+  function norm(str) {
+    return (str || '').toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function norm(str) {
+    return (str || '').toLowerCase()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '');
+  }
+
+  window.runSearch = function(query) {
+    buildIndex();
+    var list = document.getElementById('searchResultsList');
+    var countEl = document.getElementById('searchCount');
+    query = norm(query.trim());
+
+    if (query.length < 2) {
+      list.innerHTML = '<div class="search-empty">Digite ao menos 2 caracteres...</div>';
+      countEl.style.display = 'none';
+      return;
+    }
+
+    var terms = query.split(/\s+/);
+    var results = searchIndex.filter(function(item) {
+      var haystack = norm(item.supplier + ' ' + item.category + ' ' + item.title + ' ' + item.text);
+      return terms.every(function(t){ return haystack.indexOf(t) !== -1; });
+    });
+
+    // Deduplicar por supplier+title
+    var seen = {};
+    results = results.filter(function(r) {
+      var k = r.supplier + '||' + r.title;
+      if (seen[k]) return false;
+      seen[k] = true;
+      return true;
+    });
+
+    countEl.style.display = results.length ? 'block' : 'none';
+    countEl.textContent = results.length + ' resultado' + (results.length !== 1 ? 's' : '') + ' encontrado' + (results.length !== 1 ? 's' : '');
+
+    if (!results.length) {
+      list.innerHTML = '<div class="search-empty">Nenhum resultado para <strong style="color:var(--text-1);">"' + query + '"</strong></div>';
+      return;
+    }
+
+    list.innerHTML = results.slice(0, 40).map(function(r) {
+      return '<div class="search-result-item" onclick="(function(){ closeSearch(); setTimeout(function(){' + '}, 100); })(); ' + r.action.toString().replace(/^function.*?\{/, '').replace(/\}$/, '') + '">'
+        + '<div class="sri-top">'
+        + '<span class="sri-supplier">' + r.supplier + '</span>'
+        + '<span class="sri-category">' + r.category + '</span>'
+        + '</div>'
+        + '<div class="sri-title">' + highlight(r.title, query) + '</div>'
+        + '</div>';
+    }).join('');
+
+    // Re-bind actions (simpler approach via data attributes)
+    var items = list.querySelectorAll('.search-result-item');
+    results.slice(0, 40).forEach(function(r, i) {
+      items[i].onclick = function() {
+        closeSearch();
+        setTimeout(r.action, 150);
+      };
+    });
+  };
+
+  // ESC fecha o painel
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeSearch();
+  });
+
+})();
+
 </script>
+
+<!-- ── Search Panel ───────────────────────────────────────── -->
+<div class="search-panel" id="searchPanel" onclick="handlePanelClick(event)">
+  <div class="search-overlay"></div>
+  <div class="search-results-box">
+    <div class="search-results-header">
+      <span style="font-size:14px;color:var(--text-3);position:relative;">
+        <span style="position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:13px;">🔍</span>
+        <input class="search-results-input" id="searchMainInput" type="text"
+          placeholder="Pesquisar regras, fornecedoras, distribuidoras..."
+          oninput="runSearch(this.value)" />
+      </span>
+      <button class="search-close-btn" onclick="closeSearch()">✕ Fechar</button>
+    </div>
+    <div class="search-count" id="searchCount" style="display:none;"></div>
+    <div class="search-results-list" id="searchResultsList">
+      <div class="search-empty">Digite para pesquisar no hub...</div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
