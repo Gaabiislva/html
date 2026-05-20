@@ -851,6 +851,166 @@ tbody td:first-child {
     border-bottom: 1px solid var(--border);
   }
 
+
+  /* ── Pós Venda ───────────────────────────────────────────── */
+  .pv-modal-overlay {
+    display: none;
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+  }
+  .pv-modal-overlay.active { display: flex; }
+  .pv-modal-box {
+    background: var(--surface);
+    border: 1px solid var(--amber);
+    border-radius: 14px;
+    padding: 32px 36px;
+    width: min(380px, 90vw);
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  }
+  .pv-modal-icon { font-size: 36px; margin-bottom: 12px; }
+  .pv-modal-title { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; color: var(--amber); margin-bottom: 6px; }
+  .pv-modal-sub { font-size: 11px; color: var(--text-3); margin-bottom: 20px; }
+  .pv-modal-input {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-1);
+    outline: none;
+    box-sizing: border-box;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .pv-modal-input:focus { border-color: var(--amber); }
+  .pv-modal-btn {
+    width: 100%;
+    background: var(--amber);
+    color: #0a0c0a;
+    border: none;
+    border-radius: 8px;
+    padding: 11px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .pv-modal-btn:hover { opacity: 0.9; }
+  .pv-modal-cancel { font-size: 11px; color: var(--text-3); cursor: pointer; text-decoration: underline; }
+  .pv-modal-error { font-size: 11px; color: var(--red); margin-bottom: 10px; display: none; }
+  .pv-page { display: none; }
+  .pv-page.active { display: block; background: var(--bg); min-height: 100%; position: relative; z-index: 1; }
+  .pv-header { margin-bottom: 24px; }
+  .pv-header-title { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 800; color: var(--amber); margin-bottom: 4px; }
+  .pv-header-sub { font-size: 12px; color: var(--text-3); }
+  .pv-filters { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
+  .pv-filter-select {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 8px 32px 8px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-1);
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    min-width: 180px;
+    transition: border-color 0.15s;
+  }
+  .pv-filter-select:focus { border-color: var(--amber); }
+  .pv-filter-select option { background: var(--surface2); color: var(--text-1); }
+  .pv-filter-btn {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border2);
+    background: var(--surface2);
+    color: var(--text-2);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .pv-filter-btn.active, .pv-filter-btn:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: var(--amber-muted);
+  }
+  .pv-table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border2); }
+  .pv-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .pv-table thead th {
+    background: var(--surface2);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border2);
+    white-space: nowrap;
+  }
+  .pv-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  .pv-table tbody tr:hover { background: var(--surface2); }
+  .pv-table tbody tr:last-child { border-bottom: none; }
+  .pv-table td { padding: 9px 14px; color: var(--text-1); vertical-align: middle; }
+  .pv-badge-igreen { background: var(--green-muted); color: var(--green); border: 1px solid var(--green-dim); border-radius: 4px; padding: 2px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .pv-badge-forn { background: var(--surface2); color: var(--text-2); border: 1px solid var(--border2); border-radius: 4px; padding: 2px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .pv-desconto { font-weight: 700; color: var(--green); }
+  .pv-kwh { font-size: 11px; color: var(--text-3); }
+  .pv-search-bar { position: relative; margin-bottom: 16px; }
+  .pv-search-in {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 9px 14px 9px 36px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-1);
+    outline: none;
+    box-sizing: border-box;
+  }
+  .pv-search-in:focus { border-color: var(--amber); }
+  .pv-search-in::placeholder { color: var(--text-3); }
+  .pv-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--text-3); pointer-events: none; }
+  .pv-section-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+  .pv-section-btn {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border2);
+    background: var(--surface2);
+    color: var(--text-2);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .pv-section-btn:hover { border-color: var(--amber); color: var(--amber); }
+  .pv-section-btn.active { border-color: var(--amber); color: var(--amber); background: var(--amber-muted); }
+  .pv-summary { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+  .pv-summary-card { background: var(--surface2); border: 1px solid var(--border2); border-radius: 10px; padding: 12px 16px; flex: 1; min-width: 120px; }
+  .pv-summary-label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .pv-summary-val { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800; color: var(--amber); }
+
 </style>
 </head>
 <body>
@@ -909,6 +1069,10 @@ tbody td:first-child {
 
   <div class="sidebar-links">
     <div class="sidebar-label" style="padding-top:4px;">Acesso Rápido</div>
+    <div class="nav-item" onclick="openPosVenda()" style="color:var(--amber);display:flex;align-items:center;gap:6px;">
+      <div class="nav-dot" style="background:var(--amber);"></div>
+      🔒 Pós Venda
+    </div>
     <div class="quick-link" onclick="showPage('calculadora')" style="cursor:pointer;">
       <div class="link-icon">⚡</div> Calculadora
     </div>
@@ -1748,6 +1912,10 @@ tbody td:first-child {
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;"><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">COMERC</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">THOPEN</span><span style="font-size:10px;font-weight:700;color:#6aaac8;background:#162840;border:1px solid #1e4e8a;border-radius:4px;padding:2px 8px;">📋 ≠ 0 Todos os consumos (exceto zero)</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar todos os consumos. Ignorar apenas consumos iguais a zero.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">SUNNE</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">GV</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">SOLATIO</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">BOM FUTURO</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">COTESA</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação, com exceção do último mês.</div><div style="font-size:11px;color:var(--amber);margin-top:10px;padding:7px 10px;background:var(--amber-muted);border-radius:5px;border-left:3px solid #8a6020;">⚠ Atenção: caso o último consumo seja igual à taxa de disponibilidade, reprovar por média — mesmo com consumos maiores em meses anteriores. A fornecedora não aceita clientes cujo último consumo esteja em taxa mínima.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">GEDISA</span><span style="font-size:10px;font-weight:700;color:var(--amber);background:var(--amber-muted);border:1px solid #8a6020;border-radius:4px;padding:2px 8px;">🕐 ⏱ Último consumo registrado</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar sempre apenas o último consumo registrado do cliente.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">FIT</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">SUNCLICK</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">ORIGO</span><span style="font-size:10px;font-weight:700;color:#6aaac8;background:#162840;border:1px solid #1e4e8a;border-radius:4px;padding:2px 8px;">📋 Todos os consumos (inclusive baixos)</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar todos os meses do histórico, inclusive consumos baixos ou abaixo da classificação.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">GENIAL</span><span style="font-size:10px;font-weight:700;color:#6aaac8;background:#162840;border:1px solid #1e4e8a;border-radius:4px;padding:2px 8px;">📋 Todos os consumos (média normal)</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Fazer a média normal considerando todos os meses. Com apenas 1 mês disponível: usar esse valor.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">RESERVA</span><span style="font-size:10px;font-weight:700;color:#6aaac8;background:#162840;border:1px solid #1e4e8a;border-radius:4px;padding:2px 8px;">📋 Todos os consumos (inclusive zeros)</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar todos os meses, inclusive consumos zerados. Apenas 1 fatura disponível: considerar o valor da fatura.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">MONCARLO</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas os últimos consumos maiores que a classificação. Pular consumos zerados.</div></div><div style="background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><span style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">EDP</span><span style="font-size:10px;font-weight:700;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 8px;">📈 ↑ Consumos maiores que a classificação</span></div><div style="font-size:12px;color:var(--text-2);line-height:1.6;">Considerar apenas consumos maiores que a classificação.</div></div></div>
     </div>
   </div>
+
+  <!-- ── Página Pós Venda ── -->
+  <div id="posVendaPage" class="content pv-page"></div>
+
 </main>
 
 <script>
@@ -1899,7 +2067,7 @@ function showPage(id) {
       {dist:'RGE', estado:'Rio Grande do Sul', instalacao:'Código de Instalação', cliente:'Código de Instalação', conta:'Número do Medidor', obs:'Mín. 100 kWh'},
       {dist:'ENEL CE', estado:'Ceará', instalacao:'Instalação', cliente:'Número do Cliente', conta:'Número do Medidor', obs:'Mín. 100 kWh'},
       {dist:'EDP', estado:'Espírito Santo', instalacao:'Número da UC', cliente:'Número da UC', conta:'Número do Medidor', obs:'Mín. 100 kWh'},
-      {dist:'Energisa Sul Sudeste', estado:'SP / MG', instalacao:'Código da Instalação', cliente:'Código do Cliente', conta:'Número do Medidor', obs:'Mín. 100 kWh'},
+      {dist:'Energisa Sul Sudeste', estado:'SP / MG / PR', instalacao:'Código da Instalação', cliente:'Código do Cliente', conta:'Número do Medidor', obs:'Mín. 100 kWh'},
       {dist:'CEEE', estado:'Rio Grande do Sul', instalacao:'Número da UC', cliente:'Parceiro de Negócio', conta:'Número do Medidor', obs:'Mín. 100 kWh — Se possuir apenas UC, utilizar nos dois campos.'},
       {dist:'Neoenergia', estado:'Pernambuco', instalacao:'Código da Instalação', cliente:'Código do Cliente', conta:'Número do Medidor', obs:'Mín. 100 kWh'},
       {dist:'Energisa', estado:'Sergipe', instalacao:'Código de Instalação', cliente:'Código do Cliente', conta:'Número do Medidor', obs:'Mín. 350 kWh'},
@@ -2169,7 +2337,7 @@ function showPage(id) {
     cotesa: [{dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'RGE (Com troca de titularidade)', estado:'Rio Grande do Sul', min:100}, {dist:'RGE Rural (Sem troca de titularidade)', estado:'Rio Grande do Sul', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}],
     gedisa: [{dist:'RGE', estado:'Rio Grande do Sul', min:300}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:300}, {dist:'Equatorial', estado:'Maranhão', min:300}, {dist:'CEEE', estado:'Rio Grande do Sul', min:300}, {dist:'COPEL', estado:'Paraná', min:100}],
     fit: [{dist:'Energisa Minas Rio', estado:'Minas Gerais', min:100}, {dist:'Energisa Minas Rio', estado:'Rio de Janeiro', min:100}, {dist:'Energisa', estado:'Mato Grosso do Sul', min:100}, {dist:'Energisa', estado:'Mato Grosso', min:100}, {dist:'Elektro', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Elektro', estado:'Mato Grosso do Sul', min:100}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Goiás', min:100}, {dist:'Equatorial', estado:'Alagoas', min:100}, {dist:'Equatorial', estado:'Piauí', min:100}, {dist:'Neoenergia Cosern', estado:'Rio Grande do Norte', min:100}, {dist:'ENEL', estado:'Ceará', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:100}, {dist:'CELESC', estado:'Santa Catarina', min:100}, {dist:'COPEL', estado:'Paraná', min:100}],
-    sunclick: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'ENEL CE', estado:'Ceará', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'Energisa', estado:'Sergipe', min:350}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Maranhão', min:100}],
+    sunclick: [{dist:'RGE', estado:'Rio Grande do Sul', min:100}, {dist:'ENEL CE', estado:'Ceará', min:100}, {dist:'EDP', estado:'Espírito Santo', min:100}, {dist:'Energisa Sul Sudeste', estado:'São Paulo / MG / PR', min:100}, {dist:'CEEE', estado:'Rio Grande do Sul', min:100}, {dist:'Neoenergia', estado:'Pernambuco', min:100}, {dist:'Energisa', estado:'Sergipe', min:350}, {dist:'CPFL Paulista', estado:'São Paulo', min:100}, {dist:'Equatorial', estado:'Maranhão', min:100}],
     bomfuturo: [{dist:'Energisa', estado:'Mato Grosso', min:100}],
     origo: [{dist:'COSERN', estado:'Rio Grande do Norte', min:150}, {dist:'Equatorial', estado:'Goiás', min:150}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:150}, {dist:'Equatorial', estado:'Pará', min:150}, {dist:'Energisa', estado:'Tocantins', min:150}],
     origo: [{dist:'COSERN', estado:'Rio Grande do Norte', min:150}, {dist:'Equatorial', estado:'Goiás', min:150}, {dist:'COELBA (Neoenergia)', estado:'Bahia', min:150}, {dist:'Equatorial', estado:'Pará', min:150}, {dist:'Energisa', estado:'Tocantins', min:150}],
@@ -2248,9 +2416,9 @@ function showSupplier(key) {
     gv: [['CEMIG', 'Minas Gerais'], ['Energisa', 'Mato Grosso do Sul'], ['Energisa', 'Mato Grosso']],
     solatio: [['Energisa', 'Paraíba']],
     cotesa: [['CELESC', 'Santa Catarina'], ['RGE', 'Rio Grande do Sul (Rural)'], ['CEEE', 'Rio Grande do Sul']],
-    gedisa: [['RGE', 'Rio Grande do Sul'], ['Energisa Sul Sudeste', 'São Paulo e Minas Gerais'], ['Equatorial', 'Maranhão'], ['CEEE', 'Rio Grande do Sul'], ['COPEL', 'Paraná']],
+    gedisa: [['RGE', 'Rio Grande do Sul'], ['Energisa Sul Sudeste', 'São Paulo, Minas Gerais e Paraná'], ['Equatorial', 'Maranhão'], ['CEEE', 'Rio Grande do Sul'], ['COPEL', 'Paraná']],
     fit: [['Energisa Minas Rio', 'Minas Gerais e Rio de Janeiro'], ['Elektro', 'São Paulo'], ['Elektro', 'Mato Grosso do Sul'], ['CPFL Paulista', 'São Paulo'], ['Equatorial', 'Goiás'], ['Energisa', 'Mato Grosso'], ['Energisa', 'Mato Grosso do Sul'], ['Equatorial', 'Alagoas'], ['ENEL', 'Ceará'], ['Neoenergia', 'Pernambuco'], ['Neoenergia Cosern', 'Rio Grande do Norte'], ['Equatorial', 'Piauí'], ['COELBA (Neoenergia)', 'Bahia'], ['CELESC', 'Santa Catarina'], ['COPEL', 'Paraná']],
-    sunclick: [['RGE', 'Rio Grande do Sul'], ['ENEL CE', 'Ceará'], ['EDP', 'Espírito Santo'], ['Energisa Sul Sudeste', 'São Paulo e Minas Gerais'], ['CEEE', 'Rio Grande do Sul'], ['Neoenergia', 'Pernambuco'], ['Energisa', 'Sergipe'], ['CPFL Paulista', 'São Paulo'], ['Equatorial', 'Maranhão']],
+    sunclick: [['RGE', 'Rio Grande do Sul'], ['ENEL CE', 'Ceará'], ['EDP', 'Espírito Santo'], ['Energisa Sul Sudeste', 'São Paulo, Minas Gerais e Paraná'], ['CEEE', 'Rio Grande do Sul'], ['Neoenergia', 'Pernambuco'], ['Energisa', 'Sergipe'], ['CPFL Paulista', 'São Paulo'], ['Equatorial', 'Maranhão']],
     origo: [['COSERN', 'Rio Grande do Norte'], ['Equatorial', 'Goiás'], ['COELBA (Neoenergia)', 'Bahia'], ['Equatorial', 'Pará'], ['Energisa', 'Tocantins']],
     origo: [['COSERN', 'Rio Grande do Norte'], ['Equatorial', 'Goiás'], ['COELBA (Neoenergia)', 'Bahia'], ['Equatorial', 'Pará'], ['Energisa', 'Tocantins']],
     origo: [['COSERN', 'Rio Grande do Norte'], ['Equatorial', 'Goiás'], ['COELBA (Neoenergia)', 'Bahia'], ['Equatorial', 'Pará'], ['Energisa', 'Tocantins']],
@@ -2899,12 +3067,14 @@ document.addEventListener('DOMContentLoaded', function() {
   window.openSearch = function(val) {
     var panel = document.getElementById('searchPanel');
     var input = document.getElementById('searchMainInput');
+    if (!panel || !input) return;
     panel.style.display = 'block';
     setTimeout(function(){ input.focus(); input.value = val || ''; if (val) runSearch(val); }, 50);
   };
 
   window.closeSearch = function() {
-    document.getElementById('searchPanel').style.display = 'none';
+    var sp = document.getElementById('searchPanel');
+    if (sp) sp.style.display = 'none';
     // Limpar input da sidebar
     var sideInput = document.querySelector('.search-input');
     if (sideInput) sideInput.value = '';
@@ -2990,18 +3160,210 @@ document.addEventListener('DOMContentLoaded', function() {
 
 })();
 
+
+(function() {
+
+  var posVendaData = {
+    'comerc': [{uf:'MG',conc:'CEMIG-D',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'CEMIG-D',desconto:16,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'CEMIG-D',desconto:20,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'CEMIG-D',desconto:24,posvenda:'iGreen',kwh:5000}, {uf:'MG',conc:'CEMIG-D',desconto:28,posvenda:'iGreen',kwh:10000}],
+    'cotesa': [{uf:'RS',conc:'RGE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'RGE',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'RGE',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'RS',conc:'RGE',desconto:14,posvenda:'iGreen',kwh:1000}],
+    'edp': [{uf:'MG',conc:'CPFL SANTA CRUZ',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'CPFL SANTA CRUZ',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'CPFL SANTA CRUZ',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'CPFL SANTA CRUZ',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'CPFL SANTA CRUZ',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL SANTA CRUZ',desconto:14,posvenda:'Fornecedora',kwh:1000}],
+    'fit': [{uf:'AL',conc:'EQUATORIAL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'AL',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'AL',conc:'EQUATORIAL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'AL',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'BA',conc:'COELBA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'BA',conc:'COELBA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'BA',conc:'COELBA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'BA',conc:'COELBA',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'CE',conc:'ENEL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'CE',conc:'ENEL',desconto:14,posvenda:'Fornecedora',kwh:100}, {uf:'CE',conc:'ENEL',desconto:18,posvenda:'Fornecedora',kwh:1000}, {uf:'CE',conc:'ENEL',desconto:20,posvenda:'Fornecedora',kwh:1000}, {uf:'GO',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'GO',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:100}, {uf:'GO',conc:'EQUATORIAL',desconto:18,posvenda:'Fornecedora',kwh:1000}, {uf:'GO',conc:'EQUATORIAL',desconto:20,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA MINAS RIO',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ELEKTRO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ELEKTRO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ELEKTRO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ELEKTRO',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ENERGISA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ENERGISA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MS',conc:'ENERGISA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MS',conc:'ENERGISA',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MT',conc:'ENERGISA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'MT',conc:'ENERGISA',desconto:14,posvenda:'Fornecedora',kwh:100}, {uf:'MT',conc:'ENERGISA',desconto:18,posvenda:'Fornecedora',kwh:1000}, {uf:'MT',conc:'ENERGISA',desconto:20,posvenda:'Fornecedora',kwh:1000}, {uf:'PE',conc:'NEO ENERGIA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PE',conc:'NEO ENERGIA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PE',conc:'NEO ENERGIA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PE',conc:'NEO ENERGIA',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'PI',conc:'EQUATORIAL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PI',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PI',conc:'EQUATORIAL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PI',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'COPEL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'COPEL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'PR',conc:'COPEL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'PR',conc:'COPEL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RJ',conc:'ENERGISA MINAS RIO',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'RN',conc:'COSERN',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'RN',conc:'COSERN',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'RN',conc:'COSERN',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RN',conc:'COSERN',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SC',conc:'CELESC',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SC',conc:'CELESC',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SC',conc:'CELESC',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SC',conc:'CELESC',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ELEKTRO',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'ELEKTRO',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'ELEKTRO',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ELEKTRO',desconto:14,posvenda:'Fornecedora',kwh:1000}],
+    'gedisa': [{uf:'MA',conc:'EQUATORIAL',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'MA',conc:'EQUATORIAL',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'MA',conc:'EQUATORIAL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MA',conc:'EQUATORIAL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'RS',conc:'CEEE',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'RS',conc:'CEEE',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'RS',conc:'CEEE',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RS',conc:'CEEE',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'Fornecedora',kwh:500}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'Fornecedora',kwh:500}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:14,posvenda:'Fornecedora',kwh:1000}],
+    'origo': [{uf:'PA',conc:'EQUATORIAL PA',desconto:8,posvenda:'iGreen',kwh:350}, {uf:'PA',conc:'EQUATORIAL PA',desconto:10,posvenda:'iGreen',kwh:350}, {uf:'PA',conc:'EQUATORIAL PA',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'PA',conc:'EQUATORIAL PA',desconto:14,posvenda:'iGreen',kwh:1000}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'TO',conc:'ENERGISA TOCANTINS',desconto:14,posvenda:'iGreen',kwh:1000}],
+    'rzk': [{uf:'RJ',conc:'ENEL',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENEL',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'RJ',conc:'ENEL',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'RJ',conc:'ENEL',desconto:14,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:8,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:10,posvenda:'Fornecedora',kwh:100}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:12,posvenda:'Fornecedora',kwh:1000}, {uf:'SP',conc:'CPFL PIRATININGA',desconto:14,posvenda:'Fornecedora',kwh:1000}],
+    'solatio': [{uf:'PB',conc:'ENERGISA PB',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'PB',conc:'ENERGISA PB',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'PB',conc:'ENERGISA PB',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'PB',conc:'ENERGISA PB',desconto:14,posvenda:'iGreen',kwh:1000}],
+    'sunclick': [{uf:'ES',conc:'EDP',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'MA',conc:'EQUATORIAL',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'MA',conc:'EQUATORIAL',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'MG',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'CEEE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'RS',conc:'CEEE',desconto:10,posvenda:'iGreen',kwh:100}, {uf:'SE',conc:'ENERGISA',desconto:8,posvenda:'iGreen',kwh:350}, {uf:'SE',conc:'ENERGISA',desconto:10,posvenda:'iGreen',kwh:350}, {uf:'SE',conc:'ENERGISA',desconto:12,posvenda:'iGreen',kwh:1000}, {uf:'SE',conc:'ENERGISA',desconto:14,posvenda:'iGreen',kwh:1000}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:8,posvenda:'iGreen',kwh:100}, {uf:'SP',conc:'ENERGISA SUL SUDESTE',desconto:10,posvenda:'iGreen',kwh:100}]
+  };
+
+  var pvUnlocked = false;
+  var pvCurrentFilter = 'todos';
+  var pvSearchQuery = '';
+
+  var pvForneLabels = {
+    comerc:'COMERC', cotesa:'COTESA', edp:'EDP', fit:'FIT',
+    gedisa:'GEDISA', origo:'ORIGO', rzk:'RZK (THOPEN)', solatio:'SOLATIO', sunclick:'SUNCLICK'
+  };
+
+  window.openPosVenda = function() {
+    if (pvUnlocked) {
+      renderPvPage();
+    } else {
+      var modal = document.getElementById('pvModal');
+      modal.classList.add('active');
+      setTimeout(function(){ document.getElementById('pvPasswordInput').focus(); }, 100);
+    }
+  };
+
+  window.closePvModal = function() {
+    var modal = document.getElementById('pvModal');
+    var input = document.getElementById('pvPasswordInput');
+    var err = document.getElementById('pvError');
+    if (modal) modal.classList.remove('active');
+    if (input) input.value = '';
+    if (err) err.style.display = 'none';
+  };
+
+  window.checkPvPassword = function() {
+    var inputEl = document.getElementById('pvPasswordInput');
+    var errEl = document.getElementById('pvError');
+    if (!inputEl) return;
+    var input = inputEl.value;
+    if (input === 'coordenadores2026') {
+      pvUnlocked = true;
+      closePvModal();
+      renderPvPage();
+    } else {
+      if (errEl) errEl.style.display = 'block';
+      inputEl.value = '';
+      inputEl.focus();
+    }
+  };
+
+  document.addEventListener('click', function(e) {
+    var pvPage = document.getElementById('posVendaPage');
+    if (!pvPage || !pvPage.classList.contains('active')) return;
+    var clicked = e.target.closest('.nav-item');
+    if (clicked) {
+      var oc = clicked.getAttribute('onclick') || '';
+      if (oc.indexOf('openPosVenda') === -1) {
+        pvUnlocked = false;
+        pvCurrentFilter = 'todos';
+        pvSearchQuery = '';
+      }
+    }
+  });
+
+  function getAllRows() {
+    var all = [];
+    Object.keys(posVendaData).forEach(function(key) {
+      posVendaData[key].forEach(function(r) {
+        all.push({uf:r.uf, conc:r.conc, desconto:r.desconto, posvenda:r.posvenda, kwh:r.kwh, fornecedora:key});
+      });
+    });
+    return all;
+  }
+
+  function norm(s) {
+    return (s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  }
+
+  var pvActiveSection = 'captacao';
+
+  function renderPvPage() {
+    document.querySelectorAll('.content').forEach(function(el){ el.classList.remove('active'); });
+    document.querySelectorAll('.nav-item').forEach(function(el){ el.classList.remove('active'); });
+    // Reset page title and topbar
+    var pt = document.getElementById('page-title');
+    if (pt) pt.textContent = 'Pós Venda · Área Restrita';
+    // Highlight sidebar item
+    document.querySelectorAll('.nav-item').forEach(function(el){
+      if (el.getAttribute('onclick') && el.getAttribute('onclick').indexOf('openPosVenda') !== -1) {
+        el.classList.add('active');
+      }
+    });
+    var page = document.getElementById('posVendaPage');
+    page.classList.add('active');
+
+    // Nav buttons for each section
+    var sections = [
+      {key:'captacao', label:'📊 Captação Atual'},
+    ];
+
+    var navHtml = sections.map(function(s) {
+      var active = pvActiveSection === s.key;
+      return '<button class="pv-section-btn' + (active ? ' active' : '') + '" data-pvsec="' + s.key + '">' + s.label + '</button>';
+    }).join('');
+
+    var bodyHtml = '';
+    if (pvActiveSection === 'captacao') {
+      bodyHtml = renderCaptacaoAtual();
+    }
+
+    page.innerHTML = '<div style="padding:28px 32px;">'
+      + '<div class="pv-header">'
+      + '<div class="pv-header-title">&#128274; Pós Venda</div>'
+      + '<div class="pv-header-sub">Área restrita · Coordenadores</div>'
+      + '</div>'
+      + '<div class="pv-section-nav" id="pvSectionNav">' + navHtml + '</div>'
+      + '<div id="pvSectionBody">' + bodyHtml + '</div>'
+      + '</div>';
+
+    var nav = document.getElementById('pvSectionNav');
+    if (nav) nav.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-pvsec]');
+      if (btn) { pvActiveSection = btn.getAttribute('data-pvsec'); renderPvPage(); }
+    });
+
+    var searchIn = document.getElementById('pvSearchIn');
+    if (searchIn) searchIn.addEventListener('input', function(){ pvSearchQuery = this.value; renderPvPage(); });
+
+    var filterSel = document.getElementById('pvFilterSelect');
+    if (filterSel) filterSel.addEventListener('change', function(){ pvCurrentFilter = this.value; renderPvPage(); });
+  }
+
+  function renderCaptacaoAtual() {
+    var allRows = getAllRows();
+    var fornKeys = Object.keys(posVendaData);
+    var iGreenCount = allRows.filter(function(r){ return r.posvenda === 'iGreen'; }).length;
+    var fornCount = allRows.length - iGreenCount;
+
+    var rows = allRows;
+    if (pvCurrentFilter !== 'todos') rows = rows.filter(function(r){ return r.fornecedora === pvCurrentFilter; });
+    if (pvSearchQuery) {
+      var q = norm(pvSearchQuery);
+      rows = rows.filter(function(r){
+        return norm(r.uf+' '+r.conc+' '+r.fornecedora+' '+r.posvenda+' '+r.desconto+' '+r.kwh).indexOf(q) !== -1;
+      });
+    }
+
+    var opts = '<option value="todos"' + (pvCurrentFilter==='todos'?' selected':'') + '>Todas as fornecedoras</option>';
+    fornKeys.forEach(function(k) {
+      opts += '<option value="' + k + '"' + (pvCurrentFilter===k?' selected':'') + '>' + (pvForneLabels[k]||k.toUpperCase()) + '</option>';
+    });
+    var filterBtnsHtml = '<select class="pv-filter-select" id="pvFilterSelect">' + opts + '</select>';
+
+    var tableRows = rows.map(function(r) {
+      var pvBadge = r.posvenda === 'iGreen'
+        ? '<span class="pv-badge-igreen">🏢 iGreen</span>'
+        : '<span class="pv-badge-forn">🤝 Fornecedora</span>';
+      return '<tr>'
+        + '<td><span style="font-size:10px;font-weight:800;background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:2px 7px;">' + r.uf + '</span></td>'
+        + '<td>' + r.conc + '</td>'
+        + '<td><span style="font-size:10px;font-weight:800;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 7px;">' + (pvForneLabels[r.fornecedora]||r.fornecedora.toUpperCase()) + '</span></td>'
+        + '<td><span class="pv-desconto">' + r.desconto + '%</span></td>'
+        + '<td>' + pvBadge + '</td>'
+        + '<td><span class="pv-kwh">' + r.kwh.toLocaleString('pt-BR') + ' kWh</span></td>'
+        + '</tr>';
+    }).join('');
+
+    return '<div class="pv-summary">'
+      + '<div class="pv-summary-card"><div class="pv-summary-label">Total de linhas</div><div class="pv-summary-val">' + allRows.length + '</div></div>'
+      + '<div class="pv-summary-card"><div class="pv-summary-label">Pós Venda iGreen</div><div class="pv-summary-val" style="color:var(--green);">' + iGreenCount + '</div></div>'
+      + '<div class="pv-summary-card"><div class="pv-summary-label">Pós Venda Fornecedora</div><div class="pv-summary-val" style="color:var(--text-2);">' + fornCount + '</div></div>'
+      + '<div class="pv-summary-card"><div class="pv-summary-label">Fornecedoras</div><div class="pv-summary-val">' + fornKeys.length + '</div></div>'
+      + '</div>'
+      + '<div class="pv-search-bar"><span class="pv-search-icon">🔍</span><input id="pvSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar UF, distribuidora, fornecedora..." value="' + pvSearchQuery.replace(/"/g,'&quot;') + '" /></div>'
+      + '<div class="pv-filters">' + filterBtnsHtml + '</div>'
+      + '<div class="pv-table-wrap"><table class="pv-table">'
+      + '<thead><tr><th>UF</th><th>Distribuidora</th><th>Fornecedora</th><th>Desconto</th><th>Pós Venda</th><th>kWh Mín.</th></tr></thead>'
+      + '<tbody>' + (tableRows || '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-3);">Nenhum resultado.</td></tr>') + '</tbody>'
+      + '</table></div>';
+  }
+
+})();
 </script>
+
 
 <!-- ── Search Panel ───────────────────────────────────────── -->
 <div class="search-panel" id="searchPanel" onclick="handlePanelClick(event)">
   <div class="search-overlay"></div>
   <div class="search-results-box">
     <div class="search-results-header">
-      <span style="font-size:14px;color:var(--text-3);position:relative;">
-        <span style="position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:13px;">🔍</span>
+      <span style="font-size:14px;color:var(--text-3);position:relative;flex:1;">
+        <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:13px;">🔍</span>
         <input class="search-results-input" id="searchMainInput" type="text"
           placeholder="Pesquisar regras, fornecedoras, distribuidoras..."
-          oninput="runSearch(this.value)" />
+          oninput="runSearch(this.value)" style="padding-left:32px;width:100%;box-sizing:border-box;" />
       </span>
       <button class="search-close-btn" onclick="closeSearch()">✕ Fechar</button>
     </div>
@@ -3009,6 +3371,20 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="search-results-list" id="searchResultsList">
       <div class="search-empty">Digite para pesquisar no hub...</div>
     </div>
+  </div>
+</div>
+
+<!-- ── Modal Senha Pós Venda ──────────────────────────── -->
+<div class="pv-modal-overlay" id="pvModal">
+  <div class="pv-modal-box">
+    <div class="pv-modal-icon">🔒</div>
+    <div class="pv-modal-title">Área Restrita · Pós Venda</div>
+    <div class="pv-modal-sub">Acesso exclusivo para coordenadores</div>
+    <input class="pv-modal-input" type="password" id="pvPasswordInput" placeholder="••••••••••••••••"
+      onkeydown="if(event.key==='Enter') checkPvPassword()" />
+    <div class="pv-modal-error" id="pvError">Senha incorreta. Tente novamente.</div>
+    <button class="pv-modal-btn" onclick="checkPvPassword()">Acessar</button>
+    <span class="pv-modal-cancel" onclick="closePvModal()">Cancelar</span>
   </div>
 </div>
 
