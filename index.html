@@ -128,26 +128,29 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 20px;
-  font-family: 'Inter', monospace;
-  font-size: 10px;
+  padding: 6px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
   color: var(--text-3);
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.15s;
+  transition: all 0.15s;
+  border-radius: 5px;
+  margin: 1px 8px;
 }
 
-.quick-link:hover { color: var(--green); }
+.quick-link:hover { color: var(--text-1); background: var(--surface2); }
 
 .link-icon {
-  width: 14px; height: 14px;
-  background: var(--surface3);
-  border: 1px solid var(--border2);
+  width: 16px; height: 16px;
+  background: transparent;
+  border: none;
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 7px;
+  font-size: 11px;
   color: var(--text-2);
 }
 
@@ -866,7 +869,7 @@ tbody td:first-child {
   .pv-modal-overlay.active { display: flex; }
   .pv-modal-box {
     background: var(--surface);
-    border: 1px solid var(--amber);
+    border: 1px solid var(--green-dim);
     border-radius: 14px;
     padding: 32px 36px;
     width: min(380px, 90vw);
@@ -874,7 +877,7 @@ tbody td:first-child {
     box-shadow: 0 24px 60px rgba(0,0,0,0.6);
   }
   .pv-modal-icon { font-size: 36px; margin-bottom: 12px; }
-  .pv-modal-title { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; color: var(--amber); margin-bottom: 6px; }
+  .pv-modal-title { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 6px; }
   .pv-modal-sub { font-size: 11px; color: var(--text-3); margin-bottom: 20px; }
   .pv-modal-input {
     width: 100%;
@@ -891,10 +894,10 @@ tbody td:first-child {
     letter-spacing: 2px;
     margin-bottom: 14px;
   }
-  .pv-modal-input:focus { border-color: var(--amber); }
+  .pv-modal-input:focus { border-color: var(--green-dim); }
   .pv-modal-btn {
     width: 100%;
-    background: var(--amber);
+    background: var(--green);
     color: #0a0c0a;
     border: none;
     border-radius: 8px;
@@ -933,7 +936,7 @@ tbody td:first-child {
     min-width: 180px;
     transition: border-color 0.15s;
   }
-  .pv-filter-select:focus { border-color: var(--amber); }
+  .pv-filter-select:focus { border-color: var(--green-dim); }
   .pv-filter-select option { background: var(--surface2); color: var(--text-1); }
   .pv-filter-btn {
     padding: 5px 14px;
@@ -953,15 +956,15 @@ tbody td:first-child {
     background: var(--amber-muted);
   }
   .pv-table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border2); }
-  .pv-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .pv-table { width: 100%; border-collapse: collapse; font-size: 13px; }
   .pv-table thead th {
     background: var(--surface2);
     padding: 10px 14px;
     text-align: left;
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 800;
-    color: var(--amber);
+    color: var(--green);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     border-bottom: 1px solid var(--border2);
@@ -970,11 +973,11 @@ tbody td:first-child {
   .pv-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
   .pv-table tbody tr:hover { background: var(--surface2); }
   .pv-table tbody tr:last-child { border-bottom: none; }
-  .pv-table td { padding: 9px 14px; color: var(--text-1); vertical-align: middle; }
-  .pv-badge-igreen { background: var(--green-muted); color: var(--green); border: 1px solid var(--green-dim); border-radius: 4px; padding: 2px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .pv-table td { padding: 11px 16px; color: var(--text-1); vertical-align: middle; font-size: 13px; }
+  .pv-badge-igreen { background: var(--green-muted); color: var(--green); border: 1px solid var(--green-dim); border-radius: 4px; padding: 3px 10px; font-size: 12px; font-weight: 700; white-space: nowrap; }
   .pv-badge-forn { background: var(--surface2); color: var(--text-2); border: 1px solid var(--border2); border-radius: 4px; padding: 2px 8px; font-size: 10px; font-weight: 700; white-space: nowrap; }
-  .pv-desconto { font-weight: 700; color: var(--green); }
-  .pv-kwh { font-size: 11px; color: var(--text-3); }
+  .pv-desconto { font-weight: 800; color: var(--green); font-size: 13px; }
+  .pv-kwh { font-size: 13px; font-weight: 700; color: var(--text-1); }
   .pv-search-bar { position: relative; margin-bottom: 16px; }
   .pv-search-in {
     width: 100%;
@@ -988,7 +991,7 @@ tbody td:first-child {
     outline: none;
     box-sizing: border-box;
   }
-  .pv-search-in:focus { border-color: var(--amber); }
+  .pv-search-in:focus { border-color: var(--green-dim); }
   .pv-search-in::placeholder { color: var(--text-3); }
   .pv-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--text-3); pointer-events: none; }
   .pv-section-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
@@ -1004,12 +1007,12 @@ tbody td:first-child {
     cursor: pointer;
     transition: all 0.15s;
   }
-  .pv-section-btn:hover { border-color: var(--amber); color: var(--amber); }
-  .pv-section-btn.active { border-color: var(--amber); color: var(--amber); background: var(--amber-muted); }
+  .pv-section-btn:hover { border-color: var(--green-dim); color: var(--green); }
+  .pv-section-btn.active { border-color: var(--green-dim); color: var(--green); background: var(--green-muted); }
   .pv-summary { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
   .pv-summary-card { background: var(--surface2); border: 1px solid var(--border2); border-radius: 10px; padding: 12px 16px; flex: 1; min-width: 120px; }
   .pv-summary-label { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .pv-summary-val { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800; color: var(--amber); }
+  .pv-summary-val { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800; color: var(--green); }
 
 </style>
 </head>
@@ -1046,6 +1049,12 @@ tbody td:first-child {
     <div class="nav-item" onclick="showPage('infofatura')">
       <div class="nav-dot"></div> Informações de Faturas
     </div>
+    <div class="nav-item" onclick="showPage('calculadora')">
+      <div class="nav-dot"></div> Calculadora
+    </div>
+    <div class="nav-item" onclick="showPage('sumario')">
+      <div class="nav-dot"></div> Sumário de Dúvidas
+    </div>
   </nav>
 
   <nav class="sidebar-section">
@@ -1068,19 +1077,9 @@ tbody td:first-child {
   </nav>
 
   <div class="sidebar-links">
-    <div class="sidebar-label" style="padding-top:4px;">Acesso Rápido</div>
-    <div class="nav-item" onclick="openPosVenda()" style="color:var(--amber);display:flex;align-items:center;gap:6px;">
-      <div class="nav-dot" style="background:var(--amber);"></div>
-      🔒 Pós Venda
+    <div class="nav-item" onclick="openPosVenda()" style="color:var(--text-2);">
+      <div class="nav-dot" style="background:var(--border2);"></div> Pós Venda
     </div>
-    <div class="quick-link" onclick="showPage('calculadora')" style="cursor:pointer;">
-      <div class="link-icon">⚡</div> Calculadora
-    </div>
-    <div class="quick-link" onclick="showPage('sumario')" style="cursor:pointer;">
-      <div class="link-icon">📋</div> Sumário de Dúvidas
-    </div>
-
-
   </div>
 </aside>
 
@@ -3267,6 +3266,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Nav buttons for each section
     var sections = [
       {key:'captacao', label:'📊 Captação Atual'},
+      {key:'regras', label:'📋 Regras de Negócio'},
     ];
 
     var navHtml = sections.map(function(s) {
@@ -3275,18 +3275,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }).join('');
 
     var bodyHtml = '';
-    if (pvActiveSection === 'captacao') {
-      bodyHtml = renderCaptacaoAtual();
-    }
-
     page.innerHTML = '<div style="padding:28px 32px;">'
-      + '<div class="pv-header">'
-      + '<div class="pv-header-title">&#128274; Pós Venda</div>'
-      + '<div class="pv-header-sub">Área restrita · Coordenadores</div>'
-      + '</div>'
+
       + '<div class="pv-section-nav" id="pvSectionNav">' + navHtml + '</div>'
-      + '<div id="pvSectionBody">' + bodyHtml + '</div>'
+      + '<div id="pvSectionBody"></div>'
       + '</div>';
+
+    if (pvActiveSection === 'captacao') {
+      renderCaptacaoAtual();
+    } else if (pvActiveSection === 'regras') {
+      renderRegrasNegocio();
+    }
 
     var nav = document.getElementById('pvSectionNav');
     if (nav) nav.addEventListener('click', function(e) {
@@ -3294,11 +3293,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (btn) { pvActiveSection = btn.getAttribute('data-pvsec'); renderPvPage(); }
     });
 
-    var searchIn = document.getElementById('pvSearchIn');
-    if (searchIn) searchIn.addEventListener('input', function(){ pvSearchQuery = this.value; renderPvPage(); });
-
-    var filterSel = document.getElementById('pvFilterSelect');
-    if (filterSel) filterSel.addEventListener('change', function(){ pvCurrentFilter = this.value; renderPvPage(); });
+    // Search and filter events are bound inside each section's render function
   }
 
   function renderCaptacaoAtual() {
@@ -3307,6 +3302,52 @@ document.addEventListener('DOMContentLoaded', function() {
     var iGreenCount = allRows.filter(function(r){ return r.posvenda === 'iGreen'; }).length;
     var fornCount = allRows.length - iGreenCount;
 
+    // Build static shell (summary + search + filter) only if not yet rendered
+    var body = document.getElementById('pvSectionBody');
+    if (!body) return '';
+
+    var existing = document.getElementById('pvCaptacaoShell');
+    if (!existing) {
+      var opts = '<option value="todos">Todas as fornecedoras</option>';
+      fornKeys.forEach(function(k) {
+        opts += '<option value="' + k + '">' + (pvForneLabels[k]||k.toUpperCase()) + '</option>';
+      });
+
+      body.innerHTML = '<div id="pvCaptacaoShell">'
+        + '<div class="pv-summary">'
+        + '<div class="pv-summary-card"><div class="pv-summary-label">Total de linhas</div><div class="pv-summary-val">' + allRows.length + '</div></div>'
+        + '<div class="pv-summary-card"><div class="pv-summary-label">Pós Venda iGreen</div><div class="pv-summary-val" style="color:var(--green);">' + iGreenCount + '</div></div>'
+        + '<div class="pv-summary-card"><div class="pv-summary-label">Pós Venda Fornecedora</div><div class="pv-summary-val" style="color:var(--text-2);">' + fornCount + '</div></div>'
+        + '<div class="pv-summary-card"><div class="pv-summary-label">Fornecedoras</div><div class="pv-summary-val">' + fornKeys.length + '</div></div>'
+        + '</div>'
+        + '<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;">'
+        + '<div class="pv-search-bar" style="flex:1;min-width:200px;margin-bottom:0;"><span class="pv-search-icon">🔍</span><input id="pvSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar UF, distribuidora, fornecedora..." /></div>'
+        + '<select class="pv-filter-select" id="pvFilterSelect">' + opts + '</select>'
+        + '</div>'
+        + '<div class="pv-table-wrap"><table class="pv-table">'
+        + '<thead><tr><th>UF</th><th>Distribuidora</th><th>Fornecedora</th><th>Desconto</th><th>Pós Venda</th><th>kWh Mín.</th></tr></thead>'
+        + '<tbody id="pvTableBody"></tbody>'
+        + '</table></div>'
+        + '</div>';
+
+      // Bind events once
+      var searchIn = document.getElementById('pvSearchIn');
+      if (searchIn) searchIn.addEventListener('input', function(){ pvSearchQuery = this.value; updateCaptacaoTable(); });
+
+      var filterSel = document.getElementById('pvFilterSelect');
+      if (filterSel) filterSel.addEventListener('change', function(){ pvCurrentFilter = this.value; pvSearchQuery = ''; var si = document.getElementById('pvSearchIn'); if(si) si.value=''; updateCaptacaoTable(); });
+    } else {
+      // Restore select value
+      var sel = document.getElementById('pvFilterSelect');
+      if (sel) sel.value = pvCurrentFilter;
+    }
+
+    updateCaptacaoTable();
+    return '';
+  }
+
+  function updateCaptacaoTable() {
+    var allRows = getAllRows();
     var rows = allRows;
     if (pvCurrentFilter !== 'todos') rows = rows.filter(function(r){ return r.fornecedora === pvCurrentFilter; });
     if (pvSearchQuery) {
@@ -3316,39 +3357,124 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    var opts = '<option value="todos"' + (pvCurrentFilter==='todos'?' selected':'') + '>Todas as fornecedoras</option>';
-    fornKeys.forEach(function(k) {
-      opts += '<option value="' + k + '"' + (pvCurrentFilter===k?' selected':'') + '>' + (pvForneLabels[k]||k.toUpperCase()) + '</option>';
-    });
-    var filterBtnsHtml = '<select class="pv-filter-select" id="pvFilterSelect">' + opts + '</select>';
-
     var tableRows = rows.map(function(r) {
       var pvBadge = r.posvenda === 'iGreen'
         ? '<span class="pv-badge-igreen">🏢 iGreen</span>'
         : '<span class="pv-badge-forn">🤝 Fornecedora</span>';
       return '<tr>'
-        + '<td><span style="font-size:10px;font-weight:800;background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:2px 7px;">' + r.uf + '</span></td>'
+        + '<td><span style="font-size:12px;font-weight:800;background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:3px 9px;">' + r.uf + '</span></td>'
         + '<td>' + r.conc + '</td>'
-        + '<td><span style="font-size:10px;font-weight:800;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:2px 7px;">' + (pvForneLabels[r.fornecedora]||r.fornecedora.toUpperCase()) + '</span></td>'
+        + '<td><span style="font-size:12px;font-weight:800;color:var(--green);background:var(--green-muted);border:1px solid var(--green-dim);border-radius:4px;padding:3px 9px;">' + (pvForneLabels[r.fornecedora]||r.fornecedora.toUpperCase()) + '</span></td>'
         + '<td><span class="pv-desconto">' + r.desconto + '%</span></td>'
         + '<td>' + pvBadge + '</td>'
         + '<td><span class="pv-kwh">' + r.kwh.toLocaleString('pt-BR') + ' kWh</span></td>'
         + '</tr>';
     }).join('');
 
-    return '<div class="pv-summary">'
-      + '<div class="pv-summary-card"><div class="pv-summary-label">Total de linhas</div><div class="pv-summary-val">' + allRows.length + '</div></div>'
-      + '<div class="pv-summary-card"><div class="pv-summary-label">Pós Venda iGreen</div><div class="pv-summary-val" style="color:var(--green);">' + iGreenCount + '</div></div>'
-      + '<div class="pv-summary-card"><div class="pv-summary-label">Pós Venda Fornecedora</div><div class="pv-summary-val" style="color:var(--text-2);">' + fornCount + '</div></div>'
-      + '<div class="pv-summary-card"><div class="pv-summary-label">Fornecedoras</div><div class="pv-summary-val">' + fornKeys.length + '</div></div>'
-      + '</div>'
-      + '<div class="pv-search-bar"><span class="pv-search-icon">🔍</span><input id="pvSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar UF, distribuidora, fornecedora..." value="' + pvSearchQuery.replace(/"/g,'&quot;') + '" /></div>'
-      + '<div class="pv-filters">' + filterBtnsHtml + '</div>'
-      + '<div class="pv-table-wrap"><table class="pv-table">'
-      + '<thead><tr><th>UF</th><th>Distribuidora</th><th>Fornecedora</th><th>Desconto</th><th>Pós Venda</th><th>kWh Mín.</th></tr></thead>'
-      + '<tbody>' + (tableRows || '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-3);">Nenhum resultado.</td></tr>') + '</tbody>'
-      + '</table></div>';
+    var tbody = document.getElementById('pvTableBody');
+    if (tbody) tbody.innerHTML = tableRows || '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-3);">Nenhum resultado.</td></tr>';
   }
+
+  // ── Regras de Negócio ─────────────────────────────────
+  var rnSearchQuery = '';
+  var rnData = [{"parceiro": "BC", "distrib": "Equatorial", "uf": "GO", "kwh": "500", "desconto": "14%", "gestao": "Fornecedora", "injecao": "360", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "EDP", "distrib": "CEEE", "uf": "RS", "kwh": "150 PF e 250 PJ", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "Copel", "uf": "PR", "kwh": "250 - 650", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "Copel", "uf": "PR", "kwh": "250 - 650", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "CPFL Paulista", "uf": "SP", "kwh": "250", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "CPFL Piratininga", "uf": "SP", "kwh": "1000 PF e 250 PJ", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "CPFL Santa Cruz", "uf": "SP", "kwh": "1000 PF e 250 PJ", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "CPFL Santa Cruz", "uf": "SP", "kwh": "1000 PF e 250 PJ", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "EDP", "uf": "SP", "kwh": "250", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "EDP", "uf": "ES", "kwh": "250", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "Elektro", "uf": "MS/SP", "kwh": "250", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "Elektro", "uf": "MS/SP", "kwh": "250", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "Elektro", "uf": "MS/SP", "kwh": "250", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "Equatorial", "uf": "GO", "kwh": "PF 150 a 250", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "EDP", "distrib": "LIGHT RJ", "uf": "RJ", "kwh": "250", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "iGreen + Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CEEE", "uf": "RS", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CEEE", "uf": "RS", "kwh": "150", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CEEE", "uf": "RS", "kwh": "150", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CELESC", "uf": "SC", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CELESC", "uf": "SC", "kwh": "150", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CELESC", "uf": "SC", "kwh": "150", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Celpe - Neoenergia", "uf": "PE", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Celpe - Neoenergia", "uf": "PE", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Celpe - Neoenergia", "uf": "PE", "kwh": "1000", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Celpe - Neoenergia", "uf": "PE", "kwh": "1000", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Coelba", "uf": "BA", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Coelba", "uf": "BA", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Coelba", "uf": "BA", "kwh": "1000", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Coelba", "uf": "BA", "kwh": "1000", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Copel", "uf": "PR", "kwh": "150-300", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Cosern", "uf": "RN", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Cosern", "uf": "RN", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Cosern", "uf": "RN", "kwh": "1000", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Cosern", "uf": "RN", "kwh": "1000", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CPFL Paulista", "uf": "SP", "kwh": "150-300", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CPFL Paulista", "uf": "SP", "kwh": "150-300", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "CPFL Paulista", "uf": "SP", "kwh": "150-300", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "EDP", "uf": "ES", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Enel", "uf": "CE", "kwh": "1000", "desconto": "18%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Enel", "uf": "CE", "kwh": "1000", "desconto": "20%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MS", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "TO", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MT", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MS", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "TO", "kwh": "150", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MS", "kwh": "1000", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "TO", "kwh": "150", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MT", "kwh": "100", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MS", "kwh": "1000", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MT", "kwh": "1000", "desconto": "18%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa", "uf": "MT", "kwh": "1000", "desconto": "20%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa Minas Rio", "uf": "MG-RJ", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa Minas Rio", "uf": "MG-RJ", "kwh": "100", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Energisa Minas Rio", "uf": "MG-RJ", "kwh": "1000", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "PI", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "AL", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "GO", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "AL", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "PI", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "AL", "kwh": "1000", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "PI", "kwh": "1000", "desconto": "12%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "GO", "kwh": "100", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "AL", "kwh": "1000", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "PI", "kwh": "1000", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "AL", "kwh": "150", "desconto": "15%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "GO", "kwh": "1000", "desconto": "18%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "FIT ENERGIA", "distrib": "Equatorial", "uf": "GO", "kwh": "1000", "desconto": "20%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "Parceiro", "atend": "iGreen + Parceiro 24h", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "CEMIG", "uf": "MG", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "CEMIG", "uf": "MG", "kwh": "100", "desconto": "16%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "CEMIG", "uf": "MG", "kwh": "100", "desconto": "20%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Coelba", "uf": "BA", "kwh": "100", "desconto": "5%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Coelba", "uf": "BA", "kwh": "100", "desconto": "5%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Coelba", "uf": "BA", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "CPFL Santa Cruz", "uf": "MG/PR/SP", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "CPFL Santa Cruz", "uf": "MG/PR/SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "CPFL Santa Cruz", "uf": "MG/PR/SP", "kwh": "100", "desconto": "12%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "CPFL Santa Cruz", "uf": "MG/PR/SP", "kwh": "100", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "EDP", "uf": "ES", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Elektro", "uf": "SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa", "uf": "MS", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa", "uf": "MS", "kwh": "100", "desconto": "16%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa", "uf": "MS", "kwh": "100", "desconto": "20%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "RJ", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "MG", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "RJ", "kwh": "100", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "MG", "kwh": "100", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "RJ", "kwh": "100", "desconto": "18%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "MG", "kwh": "100", "desconto": "18%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "RJ", "kwh": "100", "desconto": "20%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa Minas Rio", "uf": "MG", "kwh": "100", "desconto": "20%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa SS", "uf": "MG", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Energisa SS", "uf": "SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "GV", "distrib": "Equatorial", "uf": "GO", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Matrix", "distrib": "Cosern", "uf": "RN", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Matrix", "distrib": "Energisa", "uf": "MT", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Matrix", "distrib": "Energisa SS", "uf": "SP/MG", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Matrix", "distrib": "Equatorial", "uf": "AL", "kwh": "150", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Solatio", "distrib": "CEMIG", "uf": "MG", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Solatio", "distrib": "Energisa", "uf": "PB", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "120", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Solatio", "distrib": "Energisa", "uf": "PB", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "120", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Solatio", "distrib": "Energisa Minas Rio", "uf": "RJ", "kwh": "100", "desconto": "8%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Solatio", "distrib": "Energisa Minas Rio", "uf": "MG", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Solatio", "distrib": "Energisa Minas Rio", "uf": "MG", "kwh": "100", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Solatio", "distrib": "Energisa Minas Rio", "uf": "RJ", "kwh": "100", "desconto": "14%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Solatio", "distrib": "Energisa SS", "uf": "SP/MG", "kwh": "100", "desconto": "10%", "gestao": "Fornecedora + iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Edição", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Celesc", "uf": "SC", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Copel", "uf": "PR", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Copel", "uf": "PR", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Copel", "uf": "PR", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Copel", "uf": "PR", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Cosern", "uf": "RN", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "CPFL Paulista", "uf": "SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "CPFL SANTA CRUZ", "uf": "SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "EDP", "uf": "ES", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Elektro", "uf": "SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "ENEL", "uf": "RJ", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "ENEL", "uf": "RJ", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "ENEL", "uf": "RJ", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "ENEL", "uf": "RJ", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "18%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "20%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Equatorial", "uf": "MA", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Equatorial", "uf": "PI", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Equatorial", "uf": "AL", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "Equatorial", "uf": "PA", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "RGE", "uf": "RS", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunne", "distrib": "RGE", "uf": "RS", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "Celesc", "uf": "SC", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "Celesc", "uf": "SC", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "Celesc", "uf": "SC", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "Celesc", "uf": "SC", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "Copel", "uf": "PR", "kwh": "100-149", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "CPFL", "uf": "SP", "kwh": "100-149", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "RGE", "uf": "RS", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "RGE", "uf": "RS", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "RGE", "uf": "RS", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "RGE", "uf": "RS", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "CEEE", "uf": "RS", "kwh": "100-349", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "COTESA / MOVE", "distrib": "Elektro", "uf": "SP", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen e Parceiro", "atend": "iGreen e Parceiro", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "Kolmeia / Bom Futuro", "distrib": "Energisa MT", "uf": "MT", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "Kolmeia / Bom Futuro", "distrib": "Energisa MT", "uf": "MT", "kwh": "100", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "Kolmeia / Bom Futuro", "distrib": "Energisa MT", "uf": "MT", "kwh": "1000", "desconto": "18%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "Kolmeia / Bom Futuro", "distrib": "Energisa MT", "uf": "MT", "kwh": "1000", "desconto": "20%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 ou 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Visualização", "parceria": "Ativa"}, {"parceiro": "Vantage", "distrib": "Energisa SS", "uf": "SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Vantage", "distrib": "Equatorial", "uf": "GO", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Vantage", "distrib": "Equatorial", "uf": "GO", "kwh": "100", "desconto": "14%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Vantage", "distrib": "Equatorial", "uf": "GO", "kwh": "100", "desconto": "18%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Vantage", "distrib": "Equatorial", "uf": "GO", "kwh": "100", "desconto": "20%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Gedisa", "distrib": "Equatorial MA", "uf": "MA", "kwh": "500", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Equatorial MA", "uf": "MA", "kwh": "500", "desconto": "10%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Equatorial MA", "uf": "MA", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Equatorial MA", "uf": "MA", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Copel", "uf": "PR", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Copel", "uf": "PR", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Copel", "uf": "PR", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Copel", "uf": "PR", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Energisa SS", "uf": "MG/SP", "kwh": "350", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Energisa SS", "uf": "MG/SP", "kwh": "350", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Energisa SS", "uf": "MG/SP", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "Energisa SS", "uf": "MG/SP", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "RGE", "uf": "RS", "kwh": "300", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "RGE", "uf": "RS", "kwh": "1000", "desconto": "10%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "RGE", "uf": "RS", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "RGE", "uf": "RS", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "CEEE", "uf": "RS", "kwh": "350", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "CEEE", "uf": "RS", "kwh": "1000", "desconto": "12%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Gedisa", "distrib": "CEEE", "uf": "RS", "kwh": "1000", "desconto": "14%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "Parceiro", "atend": "Parceiro", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Energisa SS", "uf": "MG/SP", "kwh": "100", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Energisa SS", "uf": "MG/SP", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "14%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Enel", "uf": "CE", "kwh": "1000", "desconto": "18%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Enel", "uf": "CE", "kwh": "1000", "desconto": "20%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Equatorial", "uf": "PA", "kwh": "100", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Light", "uf": "RJ", "kwh": "100", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "EDP", "uf": "ES", "kwh": "—", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Energisa", "uf": "SE", "kwh": "350", "desconto": "8%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Energisa", "uf": "SE", "kwh": "1000", "desconto": "10%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Equatorial", "uf": "MA", "kwh": "100-499", "desconto": "8%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Equatorial", "uf": "MA", "kwh": "100-499", "desconto": "10%", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Copel", "uf": "PR", "kwh": "100", "desconto": "-", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Neoenergia", "uf": "PE", "kwh": "100", "desconto": "-", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Sunclick", "distrib": "Energisa", "uf": "MS", "kwh": "100", "desconto": "-", "gestao": "iGreen", "injecao": "—", "cancel": "—", "boletos": "1 e 2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Atua", "distrib": "Coelba", "uf": "BA", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Atua", "distrib": "Equatorial MA", "uf": "MA", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Faro", "distrib": "Enel", "uf": "CE", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Faro", "distrib": "Equatorial MA", "uf": "MA", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Faro", "distrib": "Copel", "uf": "PR", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Faro", "distrib": "Energisa TO", "uf": "TO", "kwh": "100", "desconto": "10%", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reserva", "distrib": "Elektro", "uf": "SP/MS", "kwh": "300", "desconto": "—", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Em monitoramento"}, {"parceiro": "Reserva", "distrib": "CPFL Paulista", "uf": "SP", "kwh": "300", "desconto": "—", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Em monitoramento"}, {"parceiro": "Reserva", "distrib": "CPFL Piratininga", "uf": "SP", "kwh": "300", "desconto": "—", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Em monitoramento"}, {"parceiro": "Reserva", "distrib": "Energisa MS", "uf": "MS", "kwh": "300", "desconto": "—", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Em monitoramento"}, {"parceiro": "Moncarlo", "distrib": "EDP", "uf": "ES", "kwh": "200", "desconto": "—", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Moncarlo", "distrib": "Enel", "uf": "RJ", "kwh": "200", "desconto": "—", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Moncarlo", "distrib": "Light", "uf": "RJ", "kwh": "200", "desconto": "—", "gestao": "iGreen", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Reenergisa", "distrib": "MG-Cemig", "uf": "MT", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reenergisa", "distrib": "Energisa Minas Rio", "uf": "MG", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reenergisa", "distrib": "Energisa Sul Sudeste", "uf": "MG/SP", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reenergisa", "distrib": "MS-Energisa", "uf": "MS", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reenergisa", "distrib": "MT-Energisa", "uf": "MT", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reenergisa", "distrib": "RJ - Enel", "uf": "RJ", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reenergisa", "distrib": "SP-CPFL", "uf": "SP", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Reenergisa", "distrib": "SP-Enel", "uf": "SP", "kwh": "300", "desconto": "10%", "gestao": "Fornecedora", "injecao": "90", "cancel": "90", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Paralisada"}, {"parceiro": "Origo", "distrib": "Equatorial TO", "uf": "TO", "kwh": "150", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "180", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial TO", "uf": "TO", "kwh": "150", "desconto": "10%", "gestao": "—", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial TO", "uf": "TO", "kwh": "1000", "desconto": "12%", "gestao": "—", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial TO", "uf": "TO", "kwh": "1000", "desconto": "14%", "gestao": "—", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial PA", "uf": "PA", "kwh": "350", "desconto": "8%", "gestao": "iGreen", "injecao": "90", "cancel": "180", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial PA", "uf": "PA", "kwh": "350", "desconto": "10%", "gestao": "—", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial PA", "uf": "PA", "kwh": "1000", "desconto": "12%", "gestao": "—", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial PA", "uf": "PA", "kwh": "1000", "desconto": "14%", "gestao": "—", "injecao": "—", "cancel": "—", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Celpe", "uf": "PE", "kwh": "150", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "180", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Coelba", "uf": "BA", "kwh": "150", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "180", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Cosern", "uf": "RN", "kwh": "150", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "180", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Equatorial GO", "uf": "GO", "kwh": "150", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "180", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}, {"parceiro": "Origo", "distrib": "Energisa MS", "uf": "MS", "kwh": "150", "desconto": "-", "gestao": "iGreen", "injecao": "90", "cancel": "180", "boletos": "2", "layout": "iGreen", "atend": "iGreen", "acesso": "Sem acesso", "parceria": "Ativa"}];
+
+  var rnColumns = [
+    {key:'parceiro', label:'Parceiro'},
+    {key:'distrib',  label:'Distribuidora'},
+    {key:'uf',       label:'UF'},
+    {key:'kwh',      label:'kWh Mínimo'},
+    {key:'desconto', label:'Desconto Cliente'},
+    {key:'gestao',   label:'Gestão'},
+    {key:'injecao',  label:'Prazo Injeção (dias)'},
+    {key:'cancel',   label:'Prazo Cancelamento (dias)'},
+    {key:'boletos',  label:'Qtd. Boletos'},
+    {key:'layout',   label:'Layout Boleto'},
+    {key:'atend',    label:'Atendimento'},
+    {key:'acesso',   label:'Acesso ao Sistema'},
+    {key:'parceria', label:'Parceria'},
+  ];
+
+  var rnFilterParceiro = 'todos';
+  var rnFilterUF = 'todos';
+
+  function renderRegrasNegocio() {
+    var body = document.getElementById('pvSectionBody');
+    if (!body) return;
+
+    // Build unique filter options
+    var parceiros = ['todos'].concat(
+      rnData.map(function(r){ return r.parceiro; })
+        .filter(function(v,i,a){ return v && v !== '—' && v !== 'Parceiro' && a.indexOf(v)===i; })
+        .sort()
+    );
+    var ufs = ['todos'].concat(
+      rnData.map(function(r){ return r.uf; })
+        .filter(function(v,i,a){ return v && v !== '—' && v !== 'UF' && a.indexOf(v)===i; })
+        .sort()
+    );
+
+    var pOpts = parceiros.map(function(p){
+      return '<option value="'+p+'"'+(rnFilterParceiro===p?' selected':'')+'>'+(p==='todos'?'Todas as fornecedoras':p)+'</option>';
+    }).join('');
+    var uOpts = ufs.map(function(u){
+      return '<option value="'+u+'"'+(rnFilterUF===u?' selected':'')+'>'+(u==='todos'?'Todas as UFs':u)+'</option>';
+    }).join('');
+
+    var theadCols = rnColumns.map(function(c){ return '<th>' + c.label + '</th>'; }).join('');
+
+    body.innerHTML = '<div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;">'
+      + '<div class="pv-search-bar" style="flex:1;min-width:200px;margin-bottom:0;"><span class="pv-search-icon">🔍</span><input id="rnSearchIn" class="pv-search-in" type="text" placeholder="Pesquisar parceiro, distribuidora, UF..." /></div>'
+      + '<select class="pv-filter-select" id="rnFilterParceiro" style="min-width:160px;">' + pOpts + '</select>'
+      + '<select class="pv-filter-select" id="rnFilterUF" style="min-width:110px;">' + uOpts + '</select>'
+      + '</div>'
+      + '<div class="pv-table-wrap" style="overflow-x:auto;">'
+      + '<table class="pv-table"><thead><tr>' + theadCols + '</tr></thead>'
+      + '<tbody id="rnTableBody"></tbody>'
+      + '</table></div>';
+
+    var si = document.getElementById('rnSearchIn');
+    if (si) si.addEventListener('input', function(){ rnSearchQuery = this.value; updateRnTable(); });
+
+    var fp = document.getElementById('rnFilterParceiro');
+    if (fp) fp.addEventListener('change', function(){ rnFilterParceiro = this.value; updateRnTable(); });
+
+    var fu = document.getElementById('rnFilterUF');
+    if (fu) fu.addEventListener('change', function(){ rnFilterUF = this.value; updateRnTable(); });
+
+    updateRnTable();
+  }
+
+  function updateRnTable() {
+    var tbody = document.getElementById('rnTableBody');
+    if (!tbody || !rnData.length) return;
+    var q = norm(rnSearchQuery);
+    var rows = rnData.filter(function(r){
+      if (rnFilterParceiro !== 'todos' && r.parceiro !== rnFilterParceiro) return false;
+      if (rnFilterUF !== 'todos' && r.uf !== rnFilterUF) return false;
+      if (q && norm(Object.values(r).join(' ')).indexOf(q) === -1) return false;
+      return true;
+    });
+    tbody.innerHTML = rows.map(function(r) {
+      var sc = r.status === 'Ativa' ? 'var(--green)' : r.status === 'Paralisada' ? '#d46b6b' : 'var(--amber)';
+      return '<tr>'
+        + '<td>' + (r.parceiro||'—') + '</td>'
+        + '<td>' + (r.distrib||'—') + '</td>'
+        + '<td><span style="font-size:11px;font-weight:800;background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:2px 7px;">' + (r.uf||'—') + '</span></td>'
+        + '<td>' + (r.kwh||'—') + '</td>'
+        + '<td><span style="font-weight:700;color:var(--green);">' + (r.desconto||'—') + '</span></td>'
+        + '<td>' + (r.gestao||'—') + '</td>'
+        + '<td style="text-align:center;">' + (r.injecao||'—') + '</td>'
+        + '<td style="text-align:center;">' + (r.cancel||'—') + '</td>'
+        + '<td style="text-align:center;">' + (r.boletos||'—') + '</td>'
+        + '<td>' + (r.layout||'—') + '</td>'
+        + '<td>' + (r.atend||'—') + '</td>'
+        + '<td>' + (r.acesso||'—') + '</td>'
+        + '<td><span style="font-size:11px;font-weight:700;color:' + sc + ';">' + (r.parceria||'—') + '</span></td>'
+        + '</tr>';
+    }).join('') || '<tr><td colspan="13" style="text-align:center;padding:40px;color:var(--text-3);">Nenhum resultado.</td></tr>';
+  }
+
 
 })();
 </script>
